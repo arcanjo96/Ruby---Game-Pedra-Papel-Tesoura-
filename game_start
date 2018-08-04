@@ -1,0 +1,57 @@
+opc = nil
+continue = nil
+while opc != "LEAVE"
+  puts "Digite uma opção: 'JOGAR' <> 'LEAVE'"
+  opc = gets.chomp
+  puts "Digite seu nome: "
+  nome = gets.chomp
+  while continue != "PARAR"
+    case opc.upcase
+    when "JOGAR"
+      puts "Seja bem vindo #{nome}!!"
+      puts "Vamos começar!!"
+      puts "Escolha  'PEDRA', 'PAPEL' ou 'TESOURA': "
+      escolha = gets.chomp
+      maquina_escolhe = Random.new.rand(1..3)
+      #puts maquina_escolhe
+
+      if maquina_escolhe == 1
+        opc_maquina = "PAPEL"
+        if escolha == opc_maquina
+          puts "IGUAIS, NADA ACONTECE..."
+        elsif escolha == "PEDRA"
+          puts "MAQUINA GANHOU"
+        else
+          puts "VOCE GANHOU!!"
+        end
+        puts "Sua escolha: #{escolha} || escolha da maquina: #{opc_maquina}"
+
+      elsif maquina_escolhe == 2
+        opc_maquina = "PEDRA"
+        if escolha == opc_maquina
+          puts "IGUAIS, NADA ACONTECE..."
+        elsif escolha == "TESOURA"
+          puts "MAQUINA GANHOU"
+        else
+          puts "VOCE GANHOU!!"
+        end
+        puts "Sua escolha: #{escolha} || escolha da maquina: #{opc_maquina}"
+
+      elsif maquina_escolhe == 3
+        opc_maquina = "TESOURA"
+        if escolha == opc_maquina
+          puts "IGUAIS, NADA ACONTECE..."
+        elsif escolha == "PAPEL"
+          puts "MAQUINA GANHOU"
+        else
+          puts "VOCE GANHOU!!"
+        end
+        puts "Sua escolha: #{escolha} || escolha da maquina: #{opc_maquina}"
+      end
+    else
+      puts "Por favor digite o comando corretamente."
+    end
+    puts "Digite continue para continuar jogando e 'PARAR' para sair do jogo!"
+    continue = gets.chomp
+  end
+end
